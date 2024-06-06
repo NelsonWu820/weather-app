@@ -12,8 +12,6 @@ To find their location's weather I gave the user 2 options
 
 * [![React][React.js]][React-url]
 * [![Bootstrap][Bootstrap.com]][Bootstrap-url]
-* [![GithubPages][GithubPages.com]][GithubPages-url]
-
 
 Contact
 Nelson: Nelsonwu820@gmail.com <br />
