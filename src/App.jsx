@@ -1,10 +1,11 @@
-import React from 'react'
+import React from 'react';
+import LocationInput from './components/LocationInput.jsx';
 
 const App = () => {
   return (
-    <div>
-      
-    </div>
+    <section className='app_parent'>
+      <LocationInput/>
+    </section>
   )
 }
 
