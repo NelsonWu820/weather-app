@@ -17,7 +17,7 @@ const LocationInput = ({newLocation}) => {
   return (
     <div>
       <LoadScript 
-        googleMapsApiKey="AIzaSyC8d3-x0XMeyyBqDPhnkcYbqdyur6vpYgo"
+        googleMapsApiKey=""
         libraries={["places"]}
       >
         <StandaloneSearchBox
