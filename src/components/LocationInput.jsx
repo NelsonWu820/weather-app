@@ -3,15 +3,13 @@ import { StandaloneSearchBox, LoadScript } from '@react-google-maps/api';
 
 //Here I'm calling google maps Javascript Maps API through ract-google-maps/ api and not doing it async
 //because I can't then call Open weather without lat & long so it dosen't need the async
-const LocationInput = () => {
+const LocationInput = ({newLocation}) => {
   const inputRef = useRef();
 
   const placeChanged = () => {
     const [place] = inputRef.current.getPlaces();
     if(place){
-      console.log(place.formatted_address)
-      console.log(place.geometry.location.lat());
-      console.log(place.geometry.location.lng());
+      newLocation(place.geometry.location.lat(), place.geometry.location.lng())
     }
   };
   
