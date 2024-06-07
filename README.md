@@ -4,9 +4,7 @@
 Using React, we're crafting a dynamic user interface that allows users to input multiple tags. When a picture encompasses all the specified tags, it dynamically appears for the user. The picture links are conveniently stored in a JSON file, facilitating easy access and serving to the user.
 
 # Location
-To find their location's weather I gave the user 2 options
-1. Allow the web app to track their location through Google (Haven't tested it on other browsers because of time limitations). But if the user wants to look at a location they will go to later this will not work, as will if they have their location turned off on Google.
-2. Input their general area (As inputting their exact address would lead to a worse user experience, their general town/city is sufficient). A fallback if they can't or don't want to give their current location through Google.
+To find their location's weather I gave the user the google maps location search field, allows them to input their general area or their exact address if they want to.
 
 ### Built With
 
