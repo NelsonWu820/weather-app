@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import LocationInput from './components/LocationInput.jsx';
+import Weather from './components/Weather.jsx';
 
 const App = () => {
   //holds the coordinates i,e lat & long
@@ -10,18 +11,18 @@ const App = () => {
   const [data, setData] = useState({});
 
   //I could put the axios after setCords of newLocation but this is incase of an edge case where the user somehow changes the cords
+  //even if t does create a few bad requests on start of the web app
   useEffect(() => {
-    if (lat !== undefined && long !== undefined){
       //also calls OpenWeather to get json then updates 
       axios.get(`https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${long}&appid=${import.meta.env.VITE_OPEN_WEATHER_API_KEY}`)
         .then(response => {
           setData(response.data);
-          console.log(data)
+          console.log(response.data)
         })
         .catch(error => {
           console.error(error);
         });
-    }
+    
   }, [lat, long]);
 
   //will be called and update state when the location changes
@@ -35,6 +36,7 @@ const App = () => {
   return (
     <section className='app_parent'>
       <LocationInput newLocation ={newLocation}/>
+      <Weather data={data}/>
     </section>
   )
 }
