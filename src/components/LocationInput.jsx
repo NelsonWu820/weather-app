@@ -7,7 +7,7 @@ const LocationInput = ({newLocation}) => {
   const inputRef = useRef();
 
   const placeChanged = () => {
-    const [place] = inputRef.current.getPlaces();
+    const [place] = inputRef.current.getPlaces(); 
     if(place){
       newLocation(place.geometry.location.lat(), place.geometry.location.lng())
     }
@@ -15,24 +15,22 @@ const LocationInput = ({newLocation}) => {
   
 
   return (
-    <div>
-      <LoadScript 
-        googleMapsApiKey=""
-        libraries={["places"]}
+    <LoadScript 
+      googleMapsApiKey={import.meta.env.VITE_GOOGLE_API_KEY}
+      libraries={["places"]}
+    >
+      <StandaloneSearchBox
+        onLoad={ref => (inputRef.current = ref)}
+        onPlacesChanged={placeChanged}
       >
-        <StandaloneSearchBox
-          onLoad={ref => (inputRef.current = ref)}
-          onPlacesChanged={placeChanged}
-        >
-          <input
-            type="text"
-            className="form-control"
-            placeholder="Enter Location"
-          />
+        <input
+          type="text"
+          className="form-control"
+          placeholder="Enter Location"
+        />
 
-        </StandaloneSearchBox>
-      </LoadScript>
-    </div>
+      </StandaloneSearchBox>
+    </LoadScript>
   )
 }
 
